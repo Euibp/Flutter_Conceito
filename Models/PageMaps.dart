@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
-import 'package:flutter_app/Pages/Page_1.dart';
+import 'package:flutter_app/Pages/Pages.dart'; // resolve todas as páginas
+/* import 'package:flutter_app/Pages/Page_1.dart';
 import 'package:flutter_app/Pages/Page_2.dart';
-import 'package:flutter_app/Pages/Page_3.dart';
+import 'package:flutter_app/Pages/Page_3.dart'; */
 
     MaterialApp allRoutes(){
       return MaterialApp(

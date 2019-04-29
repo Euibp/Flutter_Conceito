@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Assets/Premolds.dart';
+import 'package:flutter_app/Assets/GenericAppBar.dart';
 
 class ThirdMode extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,20 +16,19 @@ class ThirdMode extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           color: Colors.purple[200],
-          child:ButtonTest(),
-
+          child:PageTest(),
       )
     )
     );
   }
 }
 
-class ButtonTest extends StatefulWidget {
+class PageTest extends StatefulWidget {
   @override
-  _ButtonTestState createState() => _ButtonTestState();
+  _PageTestState createState() => _PageTestState();
 }
 
-class _ButtonTestState extends State<ButtonTest> {
+class _PageTestState extends State<PageTest> {
   String text = 'Lado C';
 
   @override
@@ -39,9 +38,9 @@ class _ButtonTestState extends State<ButtonTest> {
         child: Padding(
         padding: const EdgeInsets.all(8.0),
           child: SafeArea(
-                      child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
               Container(
                 child: Text(
                   text,
@@ -68,30 +67,37 @@ class ButtonsArea extends StatelessWidget{
   const ButtonsArea({this.createText});
   final void Function(String text) createText;
   
+  Widget _iconButtonPress(IconData icon,String text){
+    return  Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: IconButton(
+            icon: Icon(icon, size:55),
+            onPressed: (){
+                createText(text);
+            },
+          ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.backup, size:55),
-          onPressed: (){
-              createText('TV');
-          },
-        ),
-        IconButton(
-          icon: Icon(Icons.border_all, size:55),
-          onPressed: (){
-              createText('Net');
-          },
-          ),
-          IconButton(
-          icon: Icon(Icons.unarchive, size:55),
-          onPressed: (){
-              createText('Smart');
-          },
-          ),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          _iconButtonPress(Icons.tv, 'TV'),
+          _iconButtonPress(Icons.network_check, 'Net'),
+          _iconButtonPress(Icons.smartphone, 'Smart'),
+          _iconButtonPress(Icons.tv, 'TV'),
+          _iconButtonPress(Icons.network_check, 'Net'),
+          _iconButtonPress(Icons.smartphone, 'Smart'),
+          _iconButtonPress(Icons.tv, 'TV'),
+          _iconButtonPress(Icons.network_check, 'Net'),
+          _iconButtonPress(Icons.smartphone, 'Smart'),
+        ],
+      ),
     );
   }
 }

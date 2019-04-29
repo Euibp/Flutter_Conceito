@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Assets/Premolds.dart';
+import 'package:flutter_app/Assets/GenericAppBar.dart';
 
 class SecondMode extends StatelessWidget {
   // This widget is the root of your application.
