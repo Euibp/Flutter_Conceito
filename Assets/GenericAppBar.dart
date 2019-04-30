@@ -20,4 +20,11 @@ AppBar baseAppBar(String title,BuildContext context){
   );
 }
 
+AppBar tituloAppBar(String title){
+  return AppBar(
+  backgroundColor: Colors.pink, 
+  title: Text(title),
+  );
+}
+
 //}
