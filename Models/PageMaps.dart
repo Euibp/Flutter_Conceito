@@ -7,6 +7,19 @@ import 'package:flutter_app/Pages/Page_3.dart'; */
 
     MaterialApp allRoutes(){
       return MaterialApp(
+      
+      theme: ThemeData(
+        //cardColor: Colors.blue,
+       // accentColor: Colors.black,
+        bottomAppBarColor: Colors.teal,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey,
+          elevation: 8,
+          shape: CircularNotchedRectangle(),
+        ),
+
+      ), 
+
         home: MyApp(),
 
         routes: <String, WidgetBuilder>{
@@ -14,6 +27,7 @@ import 'package:flutter_app/Pages/Page_3.dart'; */
         '/Page_1' : (BuildContext context) => SecondMode(),
         '/Page_2' : (BuildContext context) => ThirdMode(),
         '/Page_3' : (BuildContext context) => ForthMode(),
+        '/Page_4' : (BuildContext context) => TestPage(),
         }
       );
     }

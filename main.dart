@@ -9,11 +9,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-       /*  appBar: AppBar(
-          backgroundColor: Colors.blue, 
-          title: new Text("Home"),
-          elevation: 4.0, 
-          centerTitle: true,), */
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -146,26 +141,31 @@ class ButtonText2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.circular(14.0),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.amber[700].withOpacity(0.6), 
-              offset: Offset(3.5,4.5),
-              blurRadius: 4,
-              ),
-          ]
+      child: GestureDetector(
+        onTap: (){
+           Navigator.pushNamed(context,'/Page_4');
+        },
+              child: Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            borderRadius: BorderRadius.circular(14.0),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.amber[700].withOpacity(0.6), 
+                offset: Offset(3.5,4.5),
+                blurRadius: 4,
+                ),
+            ]
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            "Back",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+          )
         ),
-        alignment: Alignment.center,
-        child: Text(
-          "Back",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-        )
       ),
     );
   }

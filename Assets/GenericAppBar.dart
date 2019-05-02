@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 AppBar baseAppBar(String title,BuildContext context){
   return AppBar(
-      backgroundColor: Colors.blue, 
+      //backgroundColor: Colors.blue, 
       title: Text(title),
       elevation: 4.0, 
       centerTitle: true,
@@ -23,7 +23,9 @@ AppBar baseAppBar(String title,BuildContext context){
 AppBar tituloAppBar(String title){
   return AppBar(
   backgroundColor: Colors.pink, 
+  centerTitle: true,
   title: Text(title),
+ 
   );
 }
 

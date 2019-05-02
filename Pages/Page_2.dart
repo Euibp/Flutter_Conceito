@@ -5,12 +5,7 @@ class ThirdMode extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ThirdMode',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: Scaffold(
+    return Scaffold(
           appBar: baseAppBar("Pictures", context), 
         body: Container(
           height: double.infinity,
@@ -18,7 +13,7 @@ class ThirdMode extends StatelessWidget {
           color: Colors.purple[200],
           child:PageTest(),
       )
-    )
+    
     );
   }
 }
@@ -156,7 +151,6 @@ class _InstagramHistoriesState extends State<InstagramHistories> {
           color: _colorsChoose(text, textCompare),
           borderRadius: BorderRadius.circular(14),
           child: InkWell(
-
               child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14.0),
