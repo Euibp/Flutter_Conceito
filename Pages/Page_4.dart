@@ -5,7 +5,15 @@ import 'package:flutter_app/Assets/HeaderAssets.dart';
 
 class TestPage extends StatelessWidget {
   void _showOverlay(BuildContext context) {
-    Navigator.of(context).push(GenericDialog());
+    Navigator.of(context).push(GenericDialog(
+      animationTime: 300,
+      content: Text('Texto de notificação'),
+      actions: [RaisedButton(child: Icon(Icons.keyboard_return,), onPressed: (){
+        Navigator.pop(context);
+      },)
+      ],
+      title: [Icon(Icons.warning,), Text("warning"),],
+    ));
   }
 
   @override
