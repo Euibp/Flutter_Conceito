@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/navigation.dart';
 import 'package:flutter_app/Models/PageMaps.dart';
 
 
@@ -13,51 +14,105 @@ class MyApp extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           color: Colors.blue,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: RaisedButton(
-                  child: Icon(Icons.send,size: 55),
-                  onPressed: (){
-                    Navigator.pushNamed(context,'/Page_1');
-                  },
-                ),
-              ),
-              
-              //ButtonIcons(),
-              Row(
+          child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ButtonShop1(),
-                      //SizedBox(height: 15,),
-                      ButtonText1(),
-                    ],
-                  
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        _buttonIcon(Icons.language,Colors.orangeAccent,context,EnumNavigator.page_7_bloc),
+                        _buttonIcon(Icons.airline_seat_legroom_reduced,Colors.purpleAccent,context,EnumNavigator.page_8_cmptheme),
+                        _buttonIcon(Icons.phone_forwarded,Colors.purple,context,EnumNavigator.page_2),
+                        _buttonText2("Back", Colors.amber, context, EnumNavigator.page_4),
+                        _buttonText2("IO", Colors.cyanAccent, context, EnumNavigator.page_10_dart_io)
+
+                        // _buttonShop(Icons.phone_forwarded,Colors.purple,context,'/Page_2'),
+                        // _buttonText("Back", Colors.amber, context, '/Page_4'),
+                      ],
+                    ),                 
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ButtonShop2(),
-                      //SizedBox(height: 15,),
-                      ButtonText2(),
-                    ],
-                  
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        _buttonIcon(Icons.assignment_turned_in,Colors.green[800],context, EnumNavigator.page_3),
+                        _buttonText2("SQL", Colors.red, context, EnumNavigator.page_5_sql),
+                        _buttonText2("Bloc", Colors.blue, context, EnumNavigator.page_7_bloc),
+                        _buttonText2("Lands", Colors.indigo, context, EnumNavigator.page_9_portraid_Landscape),
+                        _buttonIcon(Icons.ac_unit, Colors.indigo,context, EnumNavigator.page_6_SP)
+
+                        
+                        // _buttonShop(Icons.assignment_turned_in,Colors.green[800],context,'/Page_3'),
+                        // _buttonText("SQL", Colors.red, context, '/Page_5_SQL'),
+                        // _buttonText("Bloc", Colors.blue, context, '/Page_7_Bloc'),
+                        // _buttonShop(Icons.ac_unit, Colors.indigo,context, '/Page_6_SP'),
+                      ],
+                    
+                    ),
                   ),
                 
                 ],
               )
-            ],
           )
-      )
       )
     ;
   }
 }
+
+_buttonIcon(IconData icon,Color color,BuildContext context, EnumNavigator navigator){
+  return Padding(
+    padding: const EdgeInsets.all(5.0),
+    child: Container(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(14.0)
+      ),
+      width: 100,
+      height: 100,
+      child: IconButton(
+        icon: Icon(icon,size:55), 
+        onPressed: (){
+         UtilNavigation.nextScreen(context, navigator);
+        },
+      )
+    ),
+  );
+}
+
+_buttonText2(String text, Color color,BuildContext context,  EnumNavigator navigator){
+  return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: GestureDetector(
+        onTap: (){
+            UtilNavigation.nextScreen(context, navigator);
+        },
+              child: Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(14.0),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: color.withOpacity(0.6), 
+                offset: Offset(3.5,4.5),
+                blurRadius: 4,
+                ),
+            ]
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+          )
+        ),
+      ),
+    );
+}
+
+
 
 class ButtonShop1 extends StatelessWidget {
   @override
@@ -87,26 +142,31 @@ class ButtonText1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(14.0),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.red[700].withOpacity(0.6), 
-              offset: Offset(3.5,4.5),
-              blurRadius: 4,
-              ),
-          ]
+      child: GestureDetector(
+        onTap: (){
+           Navigator.pushNamed(context,'/Page_4');
+        },
+              child: Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(14.0),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.red[700].withOpacity(0.6), 
+                offset: Offset(3.5,4.5),
+                blurRadius: 4,
+                ),
+            ]
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            "Next",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+          )
         ),
-        alignment: Alignment.center,
-        child: Text(
-          "Next",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-        )
       ),
     );
   }
@@ -143,7 +203,7 @@ class ButtonText2 extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
         onTap: (){
-           Navigator.pushNamed(context,'/Page_4');
+           Navigator.pushNamed(context,'/Page_5_SQL');
         },
               child: Container(
           width: 100,

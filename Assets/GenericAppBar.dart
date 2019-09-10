@@ -22,7 +22,7 @@ AppBar baseAppBar(String title,BuildContext context){
 
 AppBar tituloAppBar(String title){
   return AppBar(
-  backgroundColor: Colors.pink, 
+  //backgroundColor: Colors.pink, 
   centerTitle: true,
   title: Text(title),
  
